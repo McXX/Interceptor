@@ -2,9 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.neenbedankt.android-apt'
 
-Properties props = new Properties()
-props.load(new FileInputStream(file("../config/key.properties")))
-
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.0"
