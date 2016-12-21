@@ -11,9 +11,6 @@ import com.jude.interceptor.utils.SizeFormat;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-/**
- * Created by zhuchenxi on 16/2/16.
- */
 public class PacketViewHolder extends BaseViewHolder<PacketItem> {
     @Bind(R.id.tv_type)
     TextView tvType;

@@ -6,17 +6,12 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:name=".app.APP"
+        android:name=".app.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-
-        <!-- 友盟 -->
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="${UMENG_APPKEY}" />
 
         <meta-data
             android:name="MODEL"
@@ -28,12 +23,11 @@
             android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".ui.FileDetailActivity"
-            android:label="抓包详情"/>
+            android:label="Details"/>
 
         <service android:name="jp.co.taosoftware.android.packetcapture.PacketCaptureService"
             android:permission="android.permission.BIND_VPN_SERVICE">

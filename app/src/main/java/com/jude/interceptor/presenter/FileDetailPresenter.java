@@ -7,9 +7,6 @@ import com.jude.interceptor.ui.FileDetailActivity;
 
 import java.io.File;
 
-/**
- * Created by zhuchenxi on 16/2/15.
- */
 public class FileDetailPresenter extends BeamDataActivityPresenter<FileDetailActivity,File> {
 
     @Override

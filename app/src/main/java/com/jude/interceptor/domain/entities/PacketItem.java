@@ -5,9 +5,6 @@ import android.support.annotation.IntDef;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-/**
- * Created by zhuchenxi on 16/2/16.
- */
 public class PacketItem {
 
     public static final int TCP = 1;

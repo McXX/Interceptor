@@ -16,9 +16,6 @@ import java.io.File;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-/**
- * Created by zhuchenxi on 16/2/15.
- */
 public class FileViewHolder extends BaseViewHolder<File> {
     @Bind(R.id.tv_name)
     TextView tvName;

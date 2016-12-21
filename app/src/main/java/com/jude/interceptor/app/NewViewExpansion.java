@@ -4,9 +4,6 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.jude.beam.expansion.BeamBaseActivity;
 import com.jude.beam.expansion.overlay.DefaultViewExpansionDelegate;
 
-/**
- * Created by zhuchenxi on 16/1/18.
- */
 public class NewViewExpansion extends DefaultViewExpansionDelegate {
     public NewViewExpansion(BeamBaseActivity activity) {
         super(activity);

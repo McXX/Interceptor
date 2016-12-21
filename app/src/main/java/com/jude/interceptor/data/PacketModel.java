@@ -17,9 +17,6 @@ import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-/**
- * Created by zhuchenxi on 16/2/12.
- */
 public class PacketModel extends AbsModel {
 
     public static PacketModel getInstance() {

@@ -8,9 +8,6 @@ import com.jude.swipbackhelper.SwipeBackHelper;
 import com.jude.utils.JActivityManager;
 import com.umeng.analytics.MobclickAgent;
 
-/**
- * Created by Mr.Jude on 2015/9/9.
- */
 public class ActivityDelegate extends ActivityLifeCycleDelegate {
 
     public ActivityDelegate(Activity act) {

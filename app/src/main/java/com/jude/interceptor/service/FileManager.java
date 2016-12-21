@@ -6,9 +6,6 @@ import com.jude.utils.JTimeTransform;
 
 import java.io.File;
 
-/**
- * Created by zhuchenxi on 16/2/16.
- */
 public class FileManager {
     private static final File Directory = new File(Environment.getExternalStorageDirectory(),"PacketCap");
 
@@ -20,8 +17,7 @@ public class FileManager {
     }
 
     public static File createNewPacketFile() {
-        File file = new File(Directory,createNewFileName());
-        return file;
+        return new File(Directory,createNewFileName());
     }
 
     public static File[] listPacketFiles(){

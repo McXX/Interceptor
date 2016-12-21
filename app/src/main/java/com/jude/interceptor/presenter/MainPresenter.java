@@ -15,9 +15,6 @@ import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-/**
- * Created by zhuchenxi on 16/2/12.
- */
 public class MainPresenter extends BeamListActivityPresenter<MainActivity,File> {
 
     @Override

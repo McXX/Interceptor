@@ -3,12 +3,11 @@ apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.neenbedankt.android-apt'
 
 Properties props = new Properties()
-props.load(new FileInputStream(file("../config/signing.properties")))
 props.load(new FileInputStream(file("../config/key.properties")))
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.0"
 
     defaultConfig {
         applicationId "com.jude.interceptor"
@@ -16,25 +15,11 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
-        manifestPlaceholders = [
-                UMENG_APPKEY    : props['UMENG_APPKEY'],
-                SMS_MOB_APPKEY : props['SMS_MOB_APPKEY'],
-                SMS_MOB_APPSECRET : props['SMS_MOB_APPSECRET'],
-        ]
     }
 
-    signingConfigs {
-        release{
-            keyAlias props['KEY_ALIAS']
-            keyPassword props['KEY_PASSWORD']
-            storeFile file(props['KEYSTORE_FILE'])
-            storePassword props['KEYSTORE_PASSWORD']
-        }
-    }
 
     buildTypes {
         release {
-            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             applicationVariants.all { variant ->
@@ -53,7 +38,6 @@ android {
             }
         }
         debug {
-            signingConfig signingConfigs.release
             ndk {
                 abiFilters "armeabi", "armeabi-v7a","x86"
             }
@@ -63,24 +47,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    dexOptions {
-        incremental true
-        javaMaxHeapSize "4g"
-    }
-    packagingOptions {
-        exclude 'META-INF/DEPENDENCIES.txt'
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE.txt'
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/notice.txt'
-        exclude 'META-INF/license.txt'
-        exclude 'META-INF/dependencies.txt'
-        exclude 'META-INF/LGPL2.1'
-        exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
-        exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
-    }
+
 }
 
 def buildTime() {
@@ -112,4 +79,5 @@ dependencies {
     compile 'com.google.dagger:dagger:2.0.2'
     apt 'com.google.dagger:dagger-compiler:2.0.2'
     compile 'com.tbruyelle.rxpermissions:rxpermissions:0.5.1@aar'
+//    compile group: 'jnetpcap', name: 'jnetpcap', version: '1.4.r1425-1d'
 }

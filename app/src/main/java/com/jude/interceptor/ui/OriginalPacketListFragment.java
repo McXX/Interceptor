@@ -9,9 +9,6 @@ import com.jude.interceptor.domain.entities.PacketItem;
 import com.jude.interceptor.presenter.OriginalPacketListPresenter;
 import com.jude.interceptor.ui.viewholder.PacketViewHolder;
 
-/**
- * Created by zhuchenxi on 16/2/16.
- */
 @RequiresPresenter(OriginalPacketListPresenter.class)
 public class OriginalPacketListFragment extends BeamListFragment<OriginalPacketListPresenter,PacketItem> {
 

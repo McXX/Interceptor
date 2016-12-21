@@ -10,9 +10,6 @@ import com.jude.interceptor.presenter.FileDetailPresenter;
 
 import java.io.File;
 
-/**
- * Created by zhuchenxi on 16/2/15.
- */
 @RequiresPresenter(FileDetailPresenter.class)
 public class FileDetailActivity extends BeamDataActivity<FileDetailPresenter, File> {
 

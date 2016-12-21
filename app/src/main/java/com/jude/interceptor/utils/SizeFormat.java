@@ -1,8 +1,6 @@
 package com.jude.interceptor.utils;
 
-/**
- * Created by zhuchenxi on 16/2/15.
- */
+
 public class SizeFormat {
     private static final long K = 1024;
     private static final long M = K * K;

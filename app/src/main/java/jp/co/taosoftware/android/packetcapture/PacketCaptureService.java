@@ -1,16 +1,12 @@
 package jp.co.taosoftware.android.packetcapture;
 
-import android.app.ActivityManager;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.net.VpnService;
 import android.os.ParcelFileDescriptor;
 
 import com.jude.utils.JTimeTransform;
 import com.jude.utils.JUtils;
-
-import java.util.List;
 
 import rx.subjects.BehaviorSubject;
 
@@ -69,7 +65,6 @@ public class PacketCaptureService extends VpnService implements Runnable {
         stopSelf();
         stopCapture();
         isRunning.onNext(false);
-        JUtils.Toast("数据记录本地VPN已关闭");
     }
 
     public int onStartCommand(Intent intent, int i, int i2) {
@@ -87,7 +82,6 @@ public class PacketCaptureService extends VpnService implements Runnable {
                     this.mThread = new Thread(this, "PacketCaptureThread");
                     this.mThread.start();
                     isRunning.onNext(true);
-                    JUtils.Toast("数据记录本地VPN已开启");
                     JUtils.Log("VPNService","launch "+new JTimeTransform(System.currentTimeMillis()/1000).toString("yyyy/MM/dd hh:mm:ss"));
                 }
                 break;
@@ -96,7 +90,7 @@ public class PacketCaptureService extends VpnService implements Runnable {
                 stopVPN();
                 break;
         }
-        return 3;
+        return START_REDELIVER_INTENT;
     }
 
     public synchronized void run() {
