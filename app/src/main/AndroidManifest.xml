@@ -28,7 +28,8 @@
         </activity>
         <activity android:name=".ui.FileDetailActivity"
             android:label="Details"/>
-
+        <activity android:name=".ui.TrafficActivity"
+            android:label="Traffic"/>
         <service android:name="jp.co.taosoftware.android.packetcapture.PacketCaptureService"
             android:permission="android.permission.BIND_VPN_SERVICE">
             <intent-filter>

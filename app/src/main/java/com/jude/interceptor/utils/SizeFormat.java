@@ -23,11 +23,9 @@ public class SizeFormat {
         return result;
     }
 
-    private static String format(final long value,
-                                 final long divider,
-                                 final String unit){
+    private static String format(final long value, final long divider, final String unit){
         final double result =
                 divider > 1 ? (double) value / (double) divider : (double) value;
-        return String.format("%.1f %s", Double.valueOf(result), unit);
+        return String.format("%.1f %s", result, unit);
     }
 }
