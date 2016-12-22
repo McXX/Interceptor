@@ -6,11 +6,11 @@
         <item
             android:id="@+id/traffic"
             android:icon="@android:drawable/ic_menu_camera"
-            android:title="App traffic" />
+            android:title="@string/app_traffic" />
         <item
-            android:id="@+id/about"
+            android:id="@+id/netstat"
             android:icon="@android:drawable/ic_menu_camera"
-            android:title="about" />
+            android:title="@string/netstat" />
     </group>
 
 </menu>

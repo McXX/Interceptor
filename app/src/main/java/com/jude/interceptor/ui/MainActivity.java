@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.jude.beam.bijection.RequiresPresenter;
@@ -20,6 +21,7 @@ import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.jude.interceptor.R;
+import com.jude.interceptor.service.TerminalExecutor;
 import com.jude.interceptor.presenter.MainPresenter;
 import com.jude.interceptor.service.FileManager;
 import com.jude.interceptor.ui.viewholder.FileViewHolder;
@@ -60,7 +62,7 @@ public class MainActivity extends BeamListActivity<MainPresenter,File> implement
                 this, drawerLayout, getToolbar(), R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.setDrawerListener(toggle);
         toggle.syncState();
-
+        Toast.makeText(this, TerminalExecutor.netstat(),Toast.LENGTH_LONG).show();
         navView.setNavigationItemSelectedListener(this);
 
 
@@ -131,8 +133,9 @@ public class MainActivity extends BeamListActivity<MainPresenter,File> implement
 
         if (id == R.id.traffic) {
             startActivity(new Intent(this, TrafficActivity.class));
+        }else if(id == R.id.netstat){
+            Toast.makeText(this, TerminalExecutor.netstat(),Toast.LENGTH_LONG).show();
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
