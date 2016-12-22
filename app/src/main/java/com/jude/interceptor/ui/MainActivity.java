@@ -85,7 +85,6 @@ public class MainActivity extends BeamListActivity<MainPresenter,File> implement
                         FileManager.initFileManager();
                     } else {
                         // Oups permission denied
-                        JUtils.Toast("讨厌～");
                         finish();
                     }
                 });
@@ -135,9 +134,9 @@ public class MainActivity extends BeamListActivity<MainPresenter,File> implement
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-//        if (id == R.id.information) {
+        if (id == R.id.traffic) {
 //            startActivity(new Intent(this, TimeActivity.class));
-//        }
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

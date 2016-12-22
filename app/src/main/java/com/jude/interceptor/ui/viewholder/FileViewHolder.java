@@ -41,8 +41,8 @@ public class FileViewHolder extends BaseViewHolder<File> {
         String valuePath = data.getAbsolutePath().replace(Environment.getExternalStorageDirectory().getAbsolutePath(),"");
         tvPath.setText(valuePath);
         String time = data.getName().substring(0,data.getName().length()-5);
-        String name = new JTimeTransform().parse("yyyyMMdd_hhmmss",time).toString("yyyy年MM月dd日 hh:mm:ss");
-        tvName.setText(name);
+//        String name = new JTimeTransform().parse("yyyyMMdd_hhmmss",time).toString("yyyy/MM/dd hh:mm:ss");
+        tvName.setText(data.getName());
         tvSize.setText(SizeFormat.convertToStringRepresentation(data.length()));
     }
 }

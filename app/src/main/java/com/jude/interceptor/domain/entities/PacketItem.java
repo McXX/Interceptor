@@ -10,8 +10,10 @@ public class PacketItem {
     public static final int TCP = 1;
     public static final int UDP = 2;
     public static final int ARP = 3;
-    public static final int UNKNOW = 4;
-    @IntDef({TCP, UDP,ARP,UNKNOW})
+    public static final int HTTP = 4;
+    public static final int Telnet = 5;
+    public static final int UNKNOW = 6;
+    @IntDef({TCP, UDP,ARP,HTTP,Telnet,UNKNOW})
     @Retention(RetentionPolicy.SOURCE)
     public @interface TYPE {
     }
@@ -24,6 +26,7 @@ public class PacketItem {
     private int dport;
     private int length;
     private long time;
+    private String data;
 
 
     public int getType() {
@@ -80,5 +83,13 @@ public class PacketItem {
 
     public void setSport(int sport) {
         this.sport = sport;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
     }
 }

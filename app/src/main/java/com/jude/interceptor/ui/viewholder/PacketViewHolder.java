@@ -20,6 +20,8 @@ public class PacketViewHolder extends BaseViewHolder<PacketItem> {
     TextView tvAddressTo;
     @Bind(R.id.tv_size)
     TextView tvSize;
+    @Bind(R.id.tv_data)
+    TextView tvData;
 
     public PacketViewHolder(ViewGroup parent) {
         super(parent, R.layout.item_packet);
@@ -31,11 +33,14 @@ public class PacketViewHolder extends BaseViewHolder<PacketItem> {
         switch (data.getType()){
             case PacketItem.TCP:tvType.setText("TCP");break;
             case PacketItem.UDP:tvType.setText("UDP");break;
+            case PacketItem.HTTP:tvType.setText("HTTP");break;
+            case PacketItem.Telnet:tvType.setText("Telnet");break;
             case PacketItem.ARP:tvType.setText("ARP");break;
             case PacketItem.UNKNOW:tvType.setText("UNKNOW");break;
         }
         tvAddressFrom.setText(data.getSip()+":"+data.getSport());
         tvAddressTo.setText(data.getDip()+":"+data.getDport());
         tvSize.setText(SizeFormat.convertToStringRepresentation(data.getLength()));
+        tvData.setText(data.getData());
     }
 }

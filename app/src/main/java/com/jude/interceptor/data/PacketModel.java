@@ -13,6 +13,8 @@ import org.jnetpcap.protocol.network.Ip6;
 import org.jnetpcap.protocol.tcpip.Tcp;
 import org.jnetpcap.protocol.tcpip.Udp;
 
+import java.util.Arrays;
+
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -33,16 +35,26 @@ public class PacketModel extends AbsModel {
             while (pcap.nextEx(detailsPacket)==Pcap.NEXT_EX_OK){
                 //type
                 PacketItem item = new PacketItem();
+                byte[] data = null;
                 if (detailsPacket.hasHeader(tcp)) {
                     tcp = detailsPacket.getHeader(tcp);
-                    item.setType(PacketItem.TCP);
                     item.setSport(tcp.source());
                     item.setDport(tcp.destination());
+                    data = tcp.getPayload();
+                    if(tcp.source()==80){
+                        item.setType(PacketItem.HTTP);
+                    }else if(tcp.source()==23){
+                        item.setType(PacketItem.Telnet);
+                    }else{
+                        item.setType(PacketItem.TCP);
+                    }
+
                 } else if(detailsPacket.hasHeader(udp)) {
                     udp = detailsPacket.getHeader(udp);
                     item.setType(PacketItem.UDP);
                     item.setSport(udp.source());
                     item.setDport(udp.destination());
+                    data = udp.getPayload();
                 } else if(detailsPacket.hasHeader(arp)) {
                     item.setType(PacketItem.ARP);
                 } else {
@@ -62,7 +74,7 @@ public class PacketModel extends AbsModel {
                 }
                 item.setSip(sip);
                 item.setDip(dip);
-
+                item.setData(Arrays.toString(data));
 
                 //length
                 item.setLength(detailsPacket.getTotalSize());
@@ -72,8 +84,6 @@ public class PacketModel extends AbsModel {
                 subscriber.onNext(item);
             }
             subscriber.onCompleted();
-        })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 }
