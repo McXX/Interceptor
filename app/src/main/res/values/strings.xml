@@ -9,4 +9,10 @@
     <string name="info">info@gmail.com</string>
     <string name="netstat">netstat</string>
     <string name="app_traffic">App traffic</string>
+    <string name="TCP">TCP</string>
+    <string name="UDP">UDP</string>
+    <string name="HTTP">HTTP</string>
+    <string name="Telnet">Telnet</string>
+    <string name="ARP">ARP</string>
+    <string name="other">UNKNOW</string>
 </resources>

@@ -100,7 +100,7 @@ public class PacketCaptureService extends VpnService implements Runnable {
             Builder builder = new Builder();
             builder.addAddress("10.8.0.1", 32);
             builder.addRoute("0.0.0.0", 0);
-            builder.setSession("tPacketCapture");
+            builder.setSession("Interceptor Session");
             builder.setConfigureIntent(this.a);
             this.mParcelFileDescriptor = builder.establish();
             startCapture(this.mParcelFileDescriptor.getFd());

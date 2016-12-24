@@ -41,7 +41,7 @@ public class PacketModel extends AbsModel {
                     item.setSport(tcp.source());
                     item.setDport(tcp.destination());
                     data = tcp.getPayload();
-                    if(tcp.source()==80){
+                    if(tcp.source()==80 || tcp.destination()==80){
                         item.setType(PacketItem.HTTP);
                     }else if(tcp.source()==23){
                         item.setType(PacketItem.Telnet);
@@ -74,7 +74,7 @@ public class PacketModel extends AbsModel {
                 }
                 item.setSip(sip);
                 item.setDip(dip);
-                item.setData(Arrays.toString(data));
+                item.setData(new String(data != null ? data : new byte[0]));
 
                 //length
                 item.setLength(detailsPacket.getTotalSize());

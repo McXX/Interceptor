@@ -62,7 +62,6 @@ public class MainActivity extends BeamListActivity<MainPresenter,File> implement
                 this, drawerLayout, getToolbar(), R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.setDrawerListener(toggle);
         toggle.syncState();
-        Toast.makeText(this, TerminalExecutor.netstat(),Toast.LENGTH_LONG).show();
         navView.setNavigationItemSelectedListener(this);
 
 
