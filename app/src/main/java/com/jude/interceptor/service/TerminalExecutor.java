@@ -16,7 +16,7 @@ public class TerminalExecutor {
         StringBuilder processOutput = new StringBuilder();
         try {
             ProcessBuilder processBuilder = new ProcessBuilder("netstat",
-                    "-vat");
+                    "-at");
             processBuilder.redirectErrorStream(true);
             Process process = processBuilder.start();
             BufferedReader processOutputReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
